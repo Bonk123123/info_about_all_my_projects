@@ -419,16 +419,24 @@
                 "content": "http://localhost:5005/SpaceGravity/sg3.gif"
             },
             {
-                "type": "text",
-                "content": "Наверху справа на экране разместил GUI для частичного управления системой"
-            },
-            {
                 "type": "img",
                 "content": "http://localhost:5005/SpaceGravity/sg4.gif"
             },
             {
                 "type": "text",
+                "content": "Наверху справа на экране разместил GUI для частичного управления системой"
+            },
+            {
+                "type": "img",
+                "content": "http://localhost:5005/SpaceGravity/sg5.gif"
+            },
+            {
+                "type": "text",
                 "content": "Т. е. управление гравитацией и временем, а также можно включить дебаевский радиус (радиус в пределах которой действует гравитация для других объектов)"
+            },
+            {
+                "type": "img",
+                "content": "http://localhost:5005/SpaceGravity/sg6.gif"
             }
         ]
     }
