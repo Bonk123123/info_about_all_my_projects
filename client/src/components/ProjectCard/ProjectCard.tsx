@@ -34,6 +34,7 @@ const ProjectCard: React.FC<props> = React.memo(
                             imgHover && imgGif ? (
                                 <img
                                     loading="lazy"
+                                    decoding="async"
                                     src={imgGif}
                                     alt=""
                                     className="flex object-contain w-full h-full"
@@ -41,7 +42,6 @@ const ProjectCard: React.FC<props> = React.memo(
                             ) : (
                                 <img
                                     loading="lazy"
-                                    decoding="async"
                                     src={img}
                                     alt=""
                                     className="flex object-cover w-full h-full"

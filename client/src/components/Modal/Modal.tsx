@@ -111,6 +111,7 @@ const Modal: React.FC<props> = React.memo(
                                     <img
                                         key={i}
                                         loading="lazy"
+                                        decoding="async"
                                         src={item.content}
                                         className="flex object-contain w-full"
                                         alt=""
