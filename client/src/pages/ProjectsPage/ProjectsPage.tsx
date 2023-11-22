@@ -3,16 +3,21 @@ import Container from '../../components/Container/Container';
 import ProjectCard from '../../components/ProjectCard/ProjectCard';
 import Modal from '../../components/Modal/Modal';
 import IProject from '../../model/IProject';
+import Loading from '../../components/Loading/Loading';
 
 const ProjectsPage = React.memo(() => {
     // const divRef = React.useRef<HTMLDivElement>(null);
 
     const [projects, setProjects] = React.useState<IProject[]>([]);
 
+    const [isLoading, setIsLoading] = React.useState(false);
+
     React.useEffect(() => {
+        setIsLoading(true);
         fetch('http://localhost:5005/projects')
             .then((response) => response.json())
-            .then((data) => setProjects(data));
+            .then((data) => setProjects(data))
+            .finally(() => setIsLoading(false));
     }, []);
 
     // const [isClicked, setIsClicked] = React.useState(true);
@@ -20,10 +25,6 @@ const ProjectsPage = React.memo(() => {
     const [showModals, setShowModals] = React.useState<
         { name: string; zIndex: number }[]
     >([]);
-
-    React.useEffect(() => {
-        console.log(showModals);
-    }, [showModals]);
 
     // const [scroll, setScroll] = React.useState({ startX: 0, scrollLeft: 0 });
 
@@ -63,40 +64,46 @@ const ProjectsPage = React.memo(() => {
             color="blue"
             tailwindTransitionOnClose="-translate-y-[100vh]"
         >
-            <div className="p-3 pt-7 xl:py-3 h-full">
-                <div
-                    // ref={divRef}
-                    className="flex h-[100%] w-[100%] flex-col overflow-y-auto xl:flex-row xl:overflow-y-clip xl:overflow-x-auto px-[2px] pt-[2px] pb-3"
-                >
-                    <div className="grid grid-cols-1 pr-2 xl:pr-0 sm:grid-cols-2 xl:flex gap-3">
-                        {projects.map((project, i) => (
-                            <ProjectCard
-                                key={i + '1'}
-                                name={project.name}
-                                description={project.description}
-                                img={project.img}
-                                imgGif={project.imgGif}
-                                stack={project.stack}
-                                onClick={() =>
-                                    setShowModals((prev) =>
-                                        prev.find(
-                                            (item) => item.name === project.name
+            {!isLoading ? (
+                <div className="p-3 pt-7 xl:py-3 h-full">
+                    <div
+                        // ref={divRef}
+                        className="flex h-[100%] w-[100%] flex-col overflow-y-auto xl:flex-row xl:overflow-y-clip xl:overflow-x-auto px-[2px] pt-[2px] pb-3"
+                    >
+                        <div className="grid grid-cols-1 pr-2 xl:pr-0 sm:grid-cols-2 xl:flex gap-3">
+                            {projects.map((project, i) => (
+                                <ProjectCard
+                                    key={i + '1'}
+                                    name={project.name}
+                                    description={project.description}
+                                    img={project.img}
+                                    imgGif={project.imgGif}
+                                    stack={project.stack}
+                                    onClick={() =>
+                                        setShowModals((prev) =>
+                                            prev.find(
+                                                (item) =>
+                                                    item.name === project.name
+                                            )
+                                                ? prev
+                                                : [
+                                                      ...prev,
+                                                      {
+                                                          name: project.name,
+                                                          zIndex: 50,
+                                                      },
+                                                  ]
                                         )
-                                            ? prev
-                                            : [
-                                                  ...prev,
-                                                  {
-                                                      name: project.name,
-                                                      zIndex: 50,
-                                                  },
-                                              ]
-                                    )
-                                }
-                            />
-                        ))}
+                                    }
+                                />
+                            ))}
+                        </div>
                     </div>
                 </div>
-            </div>
+            ) : (
+                <Loading />
+            )}
+
             {showModals?.map((item) => (
                 <Modal
                     key={item.name}

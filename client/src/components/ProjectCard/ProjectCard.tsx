@@ -1,6 +1,7 @@
 import React from 'react';
 import noImage from '../../assets/no-image.svg';
 import { InView } from 'react-intersection-observer';
+import Loading from '../Loading/Loading';
 
 interface props {
     name: string;
@@ -30,7 +31,9 @@ const ProjectCard: React.FC<props> = React.memo(
                     className=" w-full xl:w-[400px] h-[550px] xl:h-full hover:bg-black flex flex-col rounded-lg overflow-hidden border border-b-8 border-[blue] cursor-pointer outline-[blue] duration-75 hover:outline hover:outline-2"
                 >
                     <span className="w-full h-[40%] flex justify-center items-start overflow-hidden z-20 border-b-2 border-[blue]">
-                        {img && isVisible ? (
+                        {!isVisible ? (
+                            <Loading />
+                        ) : img ? (
                             imgHover && imgGif ? (
                                 <img
                                     loading="lazy"
@@ -52,7 +55,7 @@ const ProjectCard: React.FC<props> = React.memo(
                                 loading="lazy"
                                 src={noImage}
                                 alt=""
-                                className="flex object-contain h-full w-full"
+                                className="flex object-fill h-full w-full"
                             />
                         )}
                     </span>
