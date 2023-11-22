@@ -1,0 +1,435 @@
+[
+    {
+        "name": "snake",
+        "description": "Это один из старых моих проектов, простая змейка, с полем 32 на 32 и c управлением стрелками",
+        "stack": ["html", "css", "js", "ts", "canvas"],
+        "img": "http://localhost:5005/snake/sn1.png",
+        "imgGif": "http://localhost:5005/snake/sn3.gif",
+        "information": [
+            {
+                "type": "text",
+                "content": "Моё первое знакомство с canvas, попробовал сделать змейку. Выглядит примерно так"
+            },
+            {
+                "type": "img",
+                "content": "http://localhost:5005/snake/sn1.png"
+            },
+            {
+                "type": "text",
+                "content": "Также сделал что при выходе за границу змейка появлялась на другой стороне"
+            },
+            {
+                "type": "img",
+                "content": "http://localhost:5005/snake/sn3.gif"
+            },
+            {
+                "type": "text",
+                "content": "Проиграть здесь можно просто ударившись об себя же"
+            },
+            {
+                "type": "img",
+                "content": "http://localhost:5005/snake/sn2.gif"
+            }
+            
+        ]
+    },
+    {
+        "name": "Neural Network mini library",
+        "description": "Моё первое знакомство с нейронными сетями, решил сделать полностью с нуля, чтобы понять все механики. Довольно старый проект :)",
+        "stack": ["C++", "std", "CrowRestApi", "js", "html", "canvas"],
+        "img": "http://localhost:5005/NeuralNetwork/nn1.png",
+        "imgGif": "http://localhost:5005/NeuralNetwork/nn3.gif",
+        "information": [
+            {
+                "type": "text",
+                "content": "Я решил использовать мою библиотеку для распознавания цифр"
+            },
+            {
+                "type": "img",
+                "content": "http://localhost:5005/NeuralNetwork/nn3.gif"
+            },
+            {
+                "type": "text",
+                "content": "Так как проект относительно маленький я подумал взять лишь один класс AI.h, AI.cpp"
+            },
+            {
+                "type": "text",
+                "content": "Чтобы использовать библиотеку достаточно создать объект класса AI, его сигнатуры"
+            },
+            {
+                "type": "text",
+                "content": "AI(); - создаёт input слой с одним нейроном"
+            },
+            {
+                "type": "text",
+                "content": "AI(size_t quantityInputs); - создаёт input слой с заданным кол-вом нейроном"
+            },
+            {
+                "type": "text",
+                "content": "AI(size_t quantityInputs, int quantityBias); - создаёт input слой с заданым кол-вом нейроном и биасов"
+            },
+            {
+                "type": "text",
+                "content": ""
+            },
+            {
+                "type": "text",
+                "content": "Добавить слои можно ф-ей, void addLayer(size_t count, int quantityBias, string actFun); - где count - кол-во нейронов, quantityBias - кол-во биасов и actFun - ф-ия активации"
+            },
+            {
+                "type": "text",
+                "content": "В библиотеки всего две ф-ии активации: relu и sigmoid"
+            },
+            {
+                "type": "text",
+                "content": ""
+            },
+            {
+                "type": "text",
+                "content": "Чтобы задать оптимайзер есть setOptimizer(string optimizer); где строка может быть: sgd, sgdnest, adagrad, rms, adadelta, adam"
+            },
+            {
+                "type": "text",
+                "content": "При этой настройке все параметры будут по умолчанию"
+            },
+            {
+                "type": "text",
+                "content": ""
+            },
+            {
+                "type": "text",
+                "content": "Также можно задать оптимайзер явно"
+            },
+            {
+                "type": "text",
+                "content": "void setSGDoptimizer(float lr);"
+            },
+            {
+                "type": "text",
+                "content": "void setSGDNESToptimizer(float gamma, float v0, float eps);"
+            },
+            {
+                "type": "text",
+                "content": "void setADAGRADoptimizer(float lr, float eps);"
+            },
+            {
+                "type": "text",
+                "content": "void setRMSoptimizer(float lr, float gamma, float eps);"
+            },
+            {
+                "type": "text",
+                "content": "void setADADELTAoptimizer(float gamma, float eps);"
+            },
+            {
+                "type": "text",
+                "content": "void setADAMoptimizer(float lr, float b1, float b2, float m, float v, float eps);"
+            },
+            {
+                "type": "text",
+                "content": "Здесь можно уже установить свои параметры"
+            },
+            {
+                "type": "text",
+                "content": ""
+            },
+            {
+                "type": "text",
+                "content": "Также можно создать размер батча setBatchSize(int batchSize);"
+            },
+            {
+                "type": "text",
+                "content": "Для тренировки сети используется ф-ия train(vector<vector<float>> &data, vector<vector<float>> &correct, size_t epochs); - которая соответсвенно принимает на вход данные и их желаемые выводы, также нужно указать кол-во эпох"
+            },
+            {
+                "type": "text",
+                "content": "И наконец чтобы получить выходы сети используется ф-ия predict(vector<float> data);"
+            },
+            {
+                "type": "text",
+                "content": ""
+            },
+            {
+                "type": "text",
+                "content": "Чтобы испытать сеть, взял библиотеку Crow и сделал лишь один путь, по которому отправлялся массив из чисел 0-255, а ответом было число угаданное сетью"
+            },
+            {
+                "type": "text",
+                "content": "Сделал модель для нейронной сети 784 -> 55 -> 55 -> 10, ф-ия активации сигмоид и оптимизатор адам"
+            },
+            {
+                "type": "text",
+                "content": "Также на js сделал холст для рисования цифр и отправки их на сервер (canvas)"
+            },
+            {
+                "type": "img",
+                "content": "http://localhost:5005/NeuralNetwork/nn2.gif"
+            },
+            {
+                "type": "text",
+                "content": "При остановки рисования сеть выводила своё предположение"
+            },
+            {
+                "type": "img",
+                "content": "http://localhost:5005/NeuralNetwork/nn3.gif"
+            }
+            
+            
+        ]
+    },
+    {
+        "name": "Life Game 3D",
+        "description": "Мой первый опыт с графикой на С++, для такого я решил выбрать игру Джона Конвея но в 3D",
+        "stack": ["С++", "OpenGL", "std"],
+        "img": "http://localhost:5005/LifeGame3D/lg3.png",
+        "imgGif": "http://localhost:5005/LifeGame3D/glaider.gif",
+        "information": [
+            {
+                "type": "img",
+                "content": "http://localhost:5005/LifeGame3D/lg1.gif"
+            },
+            {
+                "type": "text",
+                "content": "Для начала вот запуск моего проета с кубиком 10 на 10 на 10, правила которые я использую для игры 2,3/3"
+            },
+            {
+                "type": "img",
+                "content": "http://localhost:5005/LifeGame3D/lg2.gif"
+            },
+            {
+                "type": "text",
+                "content": "Для отрисовки я создал два класса, StrokePixel и Pixel. Первый отрисовывает все рёбра куба, вот его сигнатура StrokePixel(GLdouble x, GLdouble y, GLdouble z, GLdouble side, GLdouble width, GLdouble color[4]). Второй же рисует куб, Pixel(GLdouble x, GLdouble y, GLdouble z, GLdouble side, std::vector<GLdouble> color);"
+            },
+            {
+                "type": "text",
+                "content": ""
+            },
+            {
+                "type": "text",
+                "content": "Далее создал класс Field, который соответсвенно названию отвечает за хранение значений ячеек поля, а также их отрисовку. При желании можно и само поле показать."
+            },
+            {
+                "type": "text",
+                "content": "И последний класс это Life, который отвечает за логику игры. Там же есть самая важная ф-ия NextGeneration(), которая отвечает за отсчёт следующего поколения игры"
+            },
+            {
+                "type": "text",
+                "content": "В классе есть несколько способов инициализировать жизнь:"
+            },
+            {
+                "type": "text",
+                "content": "Life(Field field, int quantity, std::vector<GLdouble> color); - создаёт рандомно на поле заданное колличество жизней"
+            },
+            {
+                "type": "text",
+                "content": "Life(Field field, int quantity, int AppearingCubeWidth, std::vector<GLdouble> color); - создаёт заданное создаёт рандомно внутри куба заданное колличество жизней, отсчёт размера куба идёт от начала координат"
+            },
+            {
+                "type": "text",
+                "content": "Life(Field field, int x, int y, int z, int width, std::vector<GLdouble> color); - создаёт куб, который заполнен жизнью"
+            },
+            {
+                "type": "text",
+                "content": "Life(Field field, int x, int y, int z, std::vector<GLdouble> color); - создаёт жизнь полноссью рандомно"
+            },
+            {
+                "type": "text",
+                "content": ""
+            },
+            {
+                "type": "text",
+                "content": "Также можно создать глайдер. void glaider(int x, int y, int z), глайдер это некое кол-во жизней которое бесконечно перемещается по полю"
+            },
+            {
+                "type": "img",
+                "content": "http://localhost:5005/LifeGame3D/glaider.gif"
+            }
+            
+        ]
+    },
+    {
+        "name": "Google Books Api",
+        "description": "Сделал приложения для поиска книг, использовал для этого Google books Api. Это было тестировочным заданием к собеседованию",
+        "stack": ["html", "css", "js", "ts", "react", "redux toolkit", "googleBooksApi"],
+        "img": "http://localhost:5005/GoogleBooksApi/gba2.png",
+        "imgGif": "http://localhost:5005/GoogleBooksApi/gba3.gif",
+        "information": [
+            {
+                "type": "img",
+                "content": "http://localhost:5005/GoogleBooksApi/gba2.png"
+            },
+            {
+                "type": "text",
+                "content": "У меня было задание сделать удобный поиск книг и их информации использую Google Books Api. При этом нужно чтобы были некоторые детали, допустим строка поиска и фильтры которые сейчас ниже поиска на картинке."
+            },
+            {
+                "type": "img",
+                "content": "http://localhost:5005/GoogleBooksApi/gba3.gif"
+            },
+            {
+                "type": "text",
+                "content": "Чтобы как-то отличиться, попробовал сделать что-то по сложнее. Например я создал свою ф-ию debounce и использовал её для поиска книг, или же допустим авто догрузка книг, т. е. при достижении нижней части страницы, новые данные догружались сами"
+            },
+            {
+                "type": "img",
+                "content": "http://localhost:5005/GoogleBooksApi/gba2.png"
+            },
+            {
+                "type": "text",
+                "content": "Ну и конечно добавил поддержку для всех устройств"
+            }
+            
+        ]
+    },
+    {
+        "name": "ping pong online",
+        "description": "Очень старая игра пинг понг, которую я попытался реализовать на js, а также сделать её онлайн",
+        "stack": ["html", "css", "js", "ts", "react", "websocket", "nestjs", "canvas", "docker"],
+        "img": "http://localhost:5005/ping_pong/pp1.png",
+        "imgGif": "http://localhost:5005/ping_pong/pp5.gif",
+        "information": [
+            {
+                "type": "img",
+                "content": "http://localhost:5005/ping_pong/pp5.gif"
+            },
+            {
+                "type": "text",
+                "content": "Я попытался реализовать примерно такой же пинг понг, который был раньше, а также дать ту же тематику в дизайне, для этого взял два цвета, чёрный и белый дополнительно нашёл пиксельный шрифт"
+            },
+            {
+                "type": "img",
+                "content": "http://localhost:5005/ping_pong/pp2.png"
+            },
+            {
+                "type": "text",
+                "content": "Всего в игре три режима: игра с ботом, игра на одном компьютере и игра онлайн. Бот это просто 'игрок' который следует за шаром, поэтому он довольно сложный"
+            },
+            {
+                "type": "text",
+                "content": "При запуске режима 'игра на одном компьютере' игра начинается сразу и управлять ею можно с помощью стрелок вверх низ, это для правой стороны и w, s для левой стороны "
+            },
+            {
+                "type": "text",
+                "content":  "При нажатии 'играть онлайн' открывается окно с серверами, где можно зайти на чей-то сервер или создать свой. При создании сервера нужно ввести его имя и просто ждать другого игрока"
+            },
+            {
+                "type": "img",
+                "content": "http://localhost:5005/ping_pong/pp3.png"
+            },
+            {
+                "type": "text",
+                "content": "Вот сама страничка серверов"
+            },
+            {
+                "type": "img",
+                "content": "http://localhost:5005/ping_pong/pp4.png"
+            },
+            {
+                "type": "text",
+                "content": "Момент при создании сервера"
+            }
+            
+        ]
+    },
+    {
+        "name": "Notes app",
+        "description": "Очень простое приложение где можно создавать и изменять заметки, но с динамичным фоном, где целые поколения пролетают за доли секунды",
+        "stack": ["html", "css", "js", "react", "redux toolkit", "ts", "canvas"],
+        "img": "http://localhost:5005/NotesApp/na5.png",
+        "imgGif": "http://localhost:5005/NotesApp/na2.gif",
+        "information": [
+            {
+                "type": "text",
+                "content": "Данный проект занял для меня очень много времени, так как, во время разработки встречалось много ситуаций где мне не хватало опыта, особенно со стороны сервера, но всё же я его доделал"
+            },
+            {
+                "type": "img",
+                "content": "http://localhost:5005/NotesApp/na2.gif"
+            },
+            {
+                "type": "text",
+                "content": "На гифке сразу бросается в глаза задний фон приложения, Игра Джона Конвея, ей можно управлять с помощью кнопок на правой части экрана, а для мобильных устройств, наверху"
+            },
+            {
+                "type": "text",
+                "content": ""
+            },
+            {
+                "type": "text",
+                "content": "Для начала нужно зарегистрироваться, что делается буквально в два клика"
+            },
+            {
+                "type": "text",
+                "content": "Чтобы создать заметку достаточно нажать плюсик на гланом экране и ввести название вашей заметки"
+            },
+            {
+                "type": "img",
+                "content": "http://localhost:5005/NotesApp/na1.png"
+            },
+            {
+                "type": "text",
+                "content": "Сразу после создания вас кидает на страницу этой заметки, где можно нажать add и добавить что-то одно из списка в вашу заметку"
+            },
+            {
+                "type": "img",
+                "content": "http://localhost:5005/NotesApp/na3.gif"
+            },
+            {
+                "type": "text",
+                "content": "Когда вы закончили создание, надо обязательно нажать на сохранить, чтобы всё что вы написали сохранилось"
+            },
+            {
+                "type": "img",
+                "content": "http://localhost:5005/NotesApp/na4.gif"
+            },
+            {
+                "type": "text",
+                "content": "Также на главной странице присутствует поиск, где реализована ф-ия debounce, для более оптимизированных запросов на сервер"
+            }
+        ]
+    },
+    {
+        "name": "gravity simulator",
+        "description": "Симуляция движения планет на js, а также чутка three js. Было как задание на курсовую на 2 курсе.",
+        "stack": ["html", "css", "js", "canvas", "threejs"],
+        "img": "http://localhost:5005/SpaceGravity/sg1.png",
+        "imgGif": "http://localhost:5005/SpaceGravity/sg2.gif",
+        "information": [
+            {
+                "type": "text",
+                "content": "Было задание сделать что угодно но связанное с гравитацией. Я сразу подумал про движение космических тел в космосе и решил сделать симуляцию солнечной системы."
+            },
+            {
+                "type": "text",
+                "content": "Вот что у меня получилось:"
+            },
+            {
+                "type": "img",
+                "content": "http://localhost:5005/SpaceGravity/sg2.gif"
+            },
+            {
+                "type": "text",
+                "content": "Сделал два класса: Планета (как бы любое космическое тело) и Солнце"
+            },
+            {
+                "type": "text",
+                "content": "также добавил свет и хвост для космических объектов"
+            },
+            {
+                "type": "img",
+                "content": "http://localhost:5005/SpaceGravity/sg3.gif"
+            },
+            {
+                "type": "text",
+                "content": "Наверху справа на экране разместил GUI для частичного управления системой"
+            },
+            {
+                "type": "img",
+                "content": "http://localhost:5005/SpaceGravity/sg4.gif"
+            },
+            {
+                "type": "text",
+                "content": "Т. е. управление гравитацией и временем, а также можно включить дебаевский радиус (радиус в пределах которой действует гравитация для других объектов)"
+            }
+        ]
+    }
+]
